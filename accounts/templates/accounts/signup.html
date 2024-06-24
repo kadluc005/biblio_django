@@ -52,6 +52,16 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+        .login-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -77,6 +87,7 @@
             </div>
             <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
         </form>
+        <a href="{% url 'login' %}" class="login-link">Vous avez déjà un compte ? Connectez-vous ici</a>
     </div>
     <!-- Inclure les scripts JavaScript de Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

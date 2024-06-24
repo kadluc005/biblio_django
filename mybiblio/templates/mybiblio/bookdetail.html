@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ book.book_image.url }}" class="img-fluid" alt="{{ book.book_title }} Image">
+            </div>
+            <div class="col-md-8">
+                <h1>{{ book.book_title }}</h1>
+                <h3>{{ book.book_author }}</h3>
+                <p>Date de publication: {{ book.book_publishing_date }}</p>
+                <p>Description: {{ book.book_resume }}</p>
+                <a href="{% url 'borrow' book.id %}" class="btn btn-primary">Emprunter</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

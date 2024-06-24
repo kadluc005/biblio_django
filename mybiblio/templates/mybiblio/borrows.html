@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container mt-5">
+    <h1>Ajouter un Livre</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Emprunter</button>
+    </form>
+</div>
+{% else %}
+<a href="{% url 'login' %}">Se connecter</a>
+{% endif %}
+{% endblock %}
