@@ -1,6 +1,9 @@
 .content {
     padding: 60px 0;
 }
+.hero{
+    height: 100vh;
+}
 .footer {
     background: #343a40;
     color: #fff;

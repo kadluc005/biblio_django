@@ -23,7 +23,7 @@
                     <a class="nav-link" href="{% url 'index' %}">Livres</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">Emprunts</a>
+                    <a class="nav-link" href="{% url 'user_borrows' %}">Emprunts</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
@@ -54,16 +54,19 @@
         </div>
     </nav>
 
-    {% block content %}
-    <div class="container content" style="height: 100vh;">
-        <div class="row">
-            <div class="col-12">
-                <h1>Bienvenue sur Mon Site Professionnel</h1>
-                <p>Ceci est une page d'accueil professionnelle créée avec Bootstrap. Le contenu de cette section peut être modifié pour s'adapter aux différentes pages de votre site.</p>
+    <div class="hero">
+        {% block content %}
+        <div class="container content" style="height: 100vh;">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Bienvenue sur Mon Site Professionnel</h1>
+                    <p>Ceci est une page d'accueil professionnelle créée avec Bootstrap. Le contenu de cette section peut être modifié pour s'adapter aux différentes pages de votre site.</p>
+                </div>
             </div>
         </div>
-    </div>
     {% endblock %}
+    </div>
+    
     <footer class="footer text-center">
         <div class="container">
             <p>&copy; 2024 Mon Site. Tous droits réservés.</p>

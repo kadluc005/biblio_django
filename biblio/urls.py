@@ -27,6 +27,7 @@ urlpatterns = [
     path('books/', include('mybiblio.urls')),
     path('book/<int:book_id>/', views.detail, name='book_detail'),
     path('book/<int:book_id>/borrow', views.borrow, name='borrow'),
+    path('book/myborrows', views.user_borrows, name='user_borrows'),
     path('signup/', signup, name='signup'),
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
