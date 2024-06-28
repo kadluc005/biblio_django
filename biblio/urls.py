@@ -20,6 +20,7 @@ from . import settings
 from django.conf.urls.static import static
 from mybiblio import views
 from accounts.views import signup, login_user, logout_user
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,5 +31,5 @@ urlpatterns = [
     path('book/myborrows', views.user_borrows, name='user_borrows'),
     path('signup/', signup, name='signup'),
     path('login/', login_user, name='login'),
-    path('logout/', logout_user, name='logout'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

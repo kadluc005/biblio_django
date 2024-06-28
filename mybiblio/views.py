@@ -8,7 +8,11 @@ from biblio.settings import AUTH_USER_MODEL
 # Create your views here.
 
 def index(request):
-    books = Book.objects.all()
+    query = request.GET.get('search')
+    if query:
+        books = Book.objects.filter(book_title__icontains=query)
+    else:
+        books = Book.objects.all()
     return render(request, 'mybiblio/books.html', {'books': books})
 
 def home(request):

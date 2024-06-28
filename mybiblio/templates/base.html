@@ -30,7 +30,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Rechercher" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
             </form>
 
@@ -40,7 +40,7 @@
                     <a class="nav-link text-white" href="#account">{{ user.username }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary text-white" href="#account">Se déconnecter</a>
+                    <a class="nav-link btn btn-primary text-white" href="{% url 'logout' %}?next={% url 'home' %}">Se déconnecter</a>
                 </li>
             </ul>
             
@@ -54,18 +54,92 @@
         </div>
     </nav>
 
-    <div class="hero">
-        {% block content %}
-        <div class="container content" style="height: 100vh;">
-            <div class="row">
-                <div class="col-12">
-                    <h1>Bienvenue sur Mon Site Professionnel</h1>
-                    <p>Ceci est une page d'accueil professionnelle créée avec Bootstrap. Le contenu de cette section peut être modifié pour s'adapter aux différentes pages de votre site.</p>
+    {% block content %}
+<div class="container content" style="min-height: 80vh;">
+    <!-- Hero Section -->
+    <section id="hero" class="py-5 text-center">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h1 class="display-4">Bienvenue sur Bibliothèque</h1>
+                <p class="lead">Votre destination pour la lecture et l'apprentissage.</p>
+                <a href="{% url 'index' %}" class="btn btn-primary btn-lg">Découvrez nos livres</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>À propos de nous</h2>
+                <p>Nous sommes dédiés à promouvoir la lecture et à offrir un accès facile aux meilleurs livres. Explorez notre collection variée et enrichissez votre savoir.</p>
+            </div>
+            <div class="col-md-6">
+                <img src="{% static 'images/library.jpg' %}" class="img-fluid rounded" alt="Bibliothèque">
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="my-5">
+        <h2>Nos Services</h2>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Prêt de Livres</h4>
+                        <p class="card-text">Empruntez des livres de notre vaste collection.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Réservations en ligne</h4>
+                        <p class="card-text">Réservez vos livres préférés sans tracas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Livraison à domicile</h4>
+                        <p class="card-text">Nous livrons les livres directement à votre porte.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    {% endblock %}
-    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="my-5">
+        <h2>Contactez-nous</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nom</label>
+                        <input type="text" class="form-control" id="name" placeholder="Votre nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Votre email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Votre message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <p>Vous pouvez également nous contacter par téléphone au +123 456 789 ou par email à info@bibliotheque.com.</p>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
     
     <footer class="footer text-center">
         <div class="container">
